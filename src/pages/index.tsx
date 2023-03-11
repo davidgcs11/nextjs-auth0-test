@@ -48,7 +48,7 @@ export default function Home() {
           </p>
 
           <div className={styles.grid}>
-            <Link className={styles.card} href="/middleware/layout">
+            <Link className={styles.card} href="/mid/layout">
               <h2 className={inter.className}>
                 Midleware Layout <span>-&gt;</span>
               </h2>
@@ -56,7 +56,7 @@ export default function Home() {
                 Page with getLayout
               </p>
             </Link>
-            <Link className={styles.card} href="/middleware/layout-alt">
+            <Link className={styles.card} href="/mid/layout-alt">
               <h2 className={inter.className}>
                 Middleware Layout alt <span>-&gt;</span>
               </h2>
@@ -64,7 +64,7 @@ export default function Home() {
                 Page with getLayout
               </p>
             </Link>
-            <Link className={styles.card} href="/middleware/no-layout">
+            <Link className={styles.card} href="/mid/no-layout">
               <h2 className={inter.className}>
                 Middleware NoLayout <span>-&gt;</span>
               </h2>
@@ -72,7 +72,7 @@ export default function Home() {
                 Page without getLayout
               </p>
             </Link>
-            <Link className={styles.card} href="/no-middleware/layout">
+            <Link className={styles.card} href="/no-mid/layout">
               <h2 className={inter.className}>
                 No Midleware Layout <span>-&gt;</span>
               </h2>
@@ -80,7 +80,7 @@ export default function Home() {
                 Page with getLayout
               </p>
             </Link>
-            <Link className={styles.card} href="/no-middleware/layout-alt">
+            <Link className={styles.card} href="/no-mid/layout-alt">
               <h2 className={inter.className}>
                 No Middleware Layout alt <span>-&gt;</span>
               </h2>
@@ -88,7 +88,7 @@ export default function Home() {
                 Page with getLayout
               </p>
             </Link>
-            <Link className={styles.card} href="/no-middleware/no-layout">
+            <Link className={styles.card} href="/no-mid/no-layout">
               <h2 className={inter.className}>
                 No Middleware NoLayout <span>-&gt;</span>
               </h2>
