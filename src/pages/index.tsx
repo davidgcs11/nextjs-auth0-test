@@ -8,7 +8,6 @@ import Link from 'next/link';
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
-  const router = useRouter();
   const { user } = useUser();
 
   return (
@@ -23,7 +22,7 @@ export default function Home() {
         {!user && <>
 
           <div className={styles.grid}>
-            <a
+            <Link
               href="/api/auth/login"
               className={styles.card}
               rel="noopener noreferrer"
@@ -34,7 +33,7 @@ export default function Home() {
               <p className={inter.className}>
                 Authenticate first
               </p>
-            </a>
+            </Link>
           </div>
         </>}
         {user && <>
