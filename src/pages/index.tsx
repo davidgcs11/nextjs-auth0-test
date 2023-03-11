@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
-import { useRouter } from 'next/router'
 import { useUser } from "@auth0/nextjs-auth0/client";
 import Link from 'next/link';
 
@@ -38,7 +37,7 @@ export default function Home() {
         </>}
         {user && <>
           <div>
-            Welcome {user.name}! <a href="/api/auth/logout">Logout</a>
+            Welcome {user.name}! <Link href="/api/auth/logout">Logout</Link>
           </div>
           <p className={inter.className}>
             {Object.keys(user).map((key, i) => {
