@@ -3,6 +3,7 @@ import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 import { useRouter } from 'next/router'
 import { useUser } from "@auth0/nextjs-auth0/client";
+import Link from 'next/link';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,12 +20,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <div className={styles.grid}>
-          {!user && <>
+        {!user && <>
+
+          <div className={styles.grid}>
             <a
               href="/api/auth/login"
               className={styles.card}
-              target="_blank"
               rel="noopener noreferrer"
             >
               <h2 className={inter.className}>
@@ -34,67 +35,72 @@ export default function Home() {
                 Authenticate first
               </p>
             </a>
-          </>}
-          {user && <>
-            <a
-              href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              className={styles.card}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+          </div>
+        </>}
+        {user && <>
+          <div>
+            Welcome {user.name}! <a href="/api/auth/logout">Logout</a>
+          </div>
+          <p className={inter.className}>
+            {Object.keys(user).map((key, i) => {
+              return <span key={i}>
+                {`${key.toUpperCase()}: ${user[key]}`} <br></br>
+              </span>
+            })}
+          </p>
+
+          <div className={styles.grid}>
+            <Link className={styles.card} href="/middleware/layout">
               <h2 className={inter.className}>
-                Docs <span>-&gt;</span>
+                Midleware Layout <span>-&gt;</span>
               </h2>
               <p className={inter.className}>
-                Find in-depth information about Next.js features and&nbsp;API.
+                Page with getLayout
               </p>
-            </a>
-
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              className={styles.card}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            </Link>
+            <Link className={styles.card} href="/middleware/layout-alt">
               <h2 className={inter.className}>
-                Learn <span>-&gt;</span>
+                Middleware Layout alt <span>-&gt;</span>
               </h2>
               <p className={inter.className}>
-                Learn about Next.js in an interactive course with&nbsp;quizzes!
+                Page with getLayout
               </p>
-            </a>
-
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              className={styles.card}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            </Link>
+            <Link className={styles.card} href="/middleware/no-layout">
               <h2 className={inter.className}>
-                Templates <span>-&gt;</span>
+                Middleware NoLayout <span>-&gt;</span>
               </h2>
               <p className={inter.className}>
-                Discover and deploy boilerplate example Next.js&nbsp;projects.
+                Page without getLayout
               </p>
-            </a>
-
-            <a
-              href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              className={styles.card}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            </Link>
+            <Link className={styles.card} href="/no-middleware/layout">
               <h2 className={inter.className}>
-                Deploy <span>-&gt;</span>
+                No Midleware Layout <span>-&gt;</span>
               </h2>
               <p className={inter.className}>
-                Instantly deploy your Next.js site to a shareable URL
-                with&nbsp;Vercel.
+                Page with getLayout
               </p>
-            </a>
-          </>}
+            </Link>
+            <Link className={styles.card} href="/no-middleware/layout-alt">
+              <h2 className={inter.className}>
+                No Middleware Layout alt <span>-&gt;</span>
+              </h2>
+              <p className={inter.className}>
+                Page with getLayout
+              </p>
+            </Link>
+            <Link className={styles.card} href="/no-middleware/no-layout">
+              <h2 className={inter.className}>
+                No Middleware NoLayout <span>-&gt;</span>
+              </h2>
+              <p className={inter.className}>
+                Page without getLayout
+              </p>
+            </Link>
+          </div>
+        </>}
 
-        </div>
       </main>
     </>
   )
