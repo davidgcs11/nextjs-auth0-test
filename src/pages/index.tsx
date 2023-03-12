@@ -37,7 +37,7 @@ export default function Home() {
         </>}
         {user && <>
           <div>
-            Welcome {user.name}! <Link href="/api/auth/logout">Logout</Link>
+            Welcome Preview {user.name}! <Link href="/api/auth/logout">Logout</Link>
           </div>
           <p className={inter.className}>
             {Object.keys(user).map((key, i) => {
